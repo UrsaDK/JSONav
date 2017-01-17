@@ -8,49 +8,12 @@ header {
     margin: 10px;
 }
 
-header span+span {
-    float: right;
-}
-
-header span+span a {
-    color: #aaa;
-    text-decoration: none;
-}
-
-header span+span a+a {
-    margin-left: 1ex;
-}
-
-header span+span a.active {
-    color: #000;
-}
-
-header span+span a:hover {
-    text-decoration: underline;
-}
-
 article {
+    /* display: none; */
     margin: 15px;
-    height: 100vh;
+    padding: 0 !important;
 }
 
-/*
-
-.prettyjson-content {
-    margin: 15px;
-}
-
-.prettyjson-content > div {
-    display: none;
-}
-
-.prettyjson-content > div.active {
+article.active {
     display: block;
 }
-
-.prettyjson-content-raw {
-    font-family: monospace;
-    white-space: pre;
-}
-
-*/
