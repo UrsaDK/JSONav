@@ -2,5 +2,5 @@
 	path = highlight.js
 	url = https://github.com/isagalaev/highlight.js.git
 [submodule "linkifyjs"]
-	path = linkifyjs
+	path = linkify.js
 	url = https://github.com/SoapBox/linkifyjs.git
