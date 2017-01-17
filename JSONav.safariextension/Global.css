@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+header {
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+    margin: 10px;
+}
+
+header span+span {
+    float: right;
+}
+
+header span+span a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+header span+span a+a {
+    margin-left: 1ex;
+}
+
+header span+span a.active {
+    color: #000;
+}
+
+header span+span a:hover {
+    text-decoration: underline;
+}
+
+article {
+    margin: 15px;
+    height: 100vh;
+}
+
+/*
+
+.prettyjson-content {
+    margin: 15px;
+}
+
+.prettyjson-content > div {
+    display: none;
+}
+
+.prettyjson-content > div.active {
+    display: block;
+}
+
+.prettyjson-content-raw {
+    font-family: monospace;
+    white-space: pre;
+}
+
+*/
