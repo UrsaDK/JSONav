@@ -21,7 +21,7 @@ install: update
 	cd ./linkify.js && npm install
 
 build:
-	cd ./highlight.js && node tools/build.js --target browser json javascript
+	cd ./highlight.js && node tools/build.js --target browser json
 	cd ./linkify.js && ./node_modules/.bin/gulp build && ./node_modules/.bin/gulp dist
 
 distribute:
