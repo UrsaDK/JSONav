@@ -14,8 +14,6 @@
     };
 
     object.init = function (jsonObject) {
-        console.log(jsonObject);
-
         var rawDOM = document.getElementById(config.rawId),
             navDOM = document.getElementById(config.navId);
 
