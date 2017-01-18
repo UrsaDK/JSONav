@@ -62,7 +62,7 @@
 
     function updateDocument(jsonObject) {
         JSONav.init(jsonObject);
-        var newDocument = document;
+        var newDocument = document.cloneNode(true);
         newDocument.scripts.namedItem('global-js').remove();
         return new XMLSerializer().serializeToString(newDocument);
     }
