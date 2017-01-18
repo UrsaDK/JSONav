@@ -41,11 +41,16 @@
     };
 
     object.init = function () {
-        safari.application.addEventListener('message', messageListener, false);
+        document.write("<base href='" + safari.extension.baseURI + "'>");
+        document.addEventListener("DOMContentLoaded", function(event) {
+            safari.application.addEventListener('message', messageListener, false);
+        });
     };
 
     object.test = function () {
-        updateDocument(testJson);
+        document.addEventListener("DOMContentLoaded", function(event) {
+            updateDocument(testJson);
+        });
     };
 
     function messageListener(event) {
@@ -64,10 +69,8 @@
 
 }( this.Global = this.Global || {} ));
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    if (typeof safari !== "undefined") {
-        Global.init();
-    } else {
-        Global.test();
-    }
-});
+if (typeof safari !== "undefined") {
+    Global.init();
+} else {
+    Global.test();
+}
