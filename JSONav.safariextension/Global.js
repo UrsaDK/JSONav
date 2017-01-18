@@ -64,6 +64,7 @@
         JSONav.init(jsonObject);
         var newDocument = document.cloneNode(true);
         newDocument.scripts.namedItem('global-js').remove();
+        newDocument.title = '';
         return new XMLSerializer().serializeToString(newDocument);
     }
 
