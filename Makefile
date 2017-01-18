@@ -30,4 +30,7 @@ distribute:
 		./highlight.js/build/highlight.pack.js \
 		./highlight.js/build/demo/styles \
 		./JSONav.safariextension/vendor/highlight.js
-
+	cp -R \
+		./linkify.js/dist/linkify.min.js \
+		./linkify.js/dist/linkify-element.min.js \
+		./JSONav.safariextension/vendor/linkify.js
