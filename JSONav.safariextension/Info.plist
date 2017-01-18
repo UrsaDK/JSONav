@@ -7,9 +7,9 @@
 	<key>Builder Version</key>
 	<string>11602.3.12.0.1</string>
 	<key>CFBundleDisplayName</key>
-	<string>PrettyJSON</string>
+	<string>JSONav</string>
 	<key>CFBundleIdentifier</key>
-	<string>dk.umka.prettyjson</string>
+	<string>dk.umka.jsonav</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
