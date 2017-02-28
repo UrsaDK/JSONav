@@ -1,13 +1,10 @@
-desc "Include 3rd party code in JSONav extensions"
 task include: ['include:highlight', 'include:linkify']
 
 namespace :include do
-  desc "Include #{CONFIG[:highlight][:desc]} in JSONav extensions"
   task :highlight do |t|
     include_provided_resources t
   end
 
-  desc "Include #{CONFIG[:linkify][:desc]} in JSONav extensions"
   task :linkify do |t|
     include_provided_resources t
   end

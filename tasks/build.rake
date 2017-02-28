@@ -1,7 +1,7 @@
 require 'plist'
 
-desc "Build all 3rd party extensions"
-task build: ['build:highlight', 'build:linkify']
+desc "Build all and package all extension resurces"
+task build: ['build:highlight', 'build:linkify', 'build:safari']
 
 namespace :build do
   desc "Build #{CONFIG[:highlight][:desc]}"
@@ -20,7 +20,7 @@ namespace :build do
   end
 
   desc "Build #{CONFIG[:safari][:desc]}"
-  task :safari do |t|
+  task safari: [:include] do |t|
     settings = Plist::parse_xml safari_plist
     index = settings.find_index { |dict| dict['Key'] == 'theme' }
 
