@@ -3,26 +3,49 @@
  * extension. It's used to .....
  */
 
-(function (object, $, undefined) {
+(function (self, $, undefined) {
 
-    var config = {
-        rawId:    'raw',
-        navId:    'nav',
-        tabstops: 4,
-        theme:    'default',
-        target:   '_top',
+    var document,
+        config = {
+            rawId: 'raw',
+            navId: 'nav',
+            cssId: 'highlight-theme',
+            indent: 4,
+            theme: 'default',
+            target: '_top',
+        };
+
+    self.init = function (jsonObject, userSettings, documentClone) {
+        self.updateConfig(userSettings);
+        document = documentClone;
+        updateRawView(jsonObject);
+        updateNavView(jsonObject);
     };
 
-    object.init = function (jsonObject) {
-        var rawDOM = document.getElementById(config.rawId),
-            navDOM = document.getElementById(config.navId);
-
-        // Populate JSON into an element
-        rawDOM.innerHTML = JSON.stringify(jsonObject, null, config.tabstops);
-
-        // Add highlights and linkify
-        hljs.highlightBlock(rawDOM);
-        linkifyElement(rawDOM, { target: { url: config.target } });
+    self.updateConfig = function (newConfig) {
+        Object.assign(config, newConfig);
     };
+
+    function updateRawView(jsonObject) {
+        var element = document.getElementById(config.rawId);
+        element.innerHTML = JSON.stringify(jsonObject, null, config.indent);
+        highlight(element);
+        linkify(element);
+    }
+
+    function updateNavView(jsonObject) {
+        var element = document.getElementById(config.navId);
+
+    }
+
+    function highlight(element) {
+        hljs.highlightBlock(element);
+        document.getElementById(config.cssId).href =
+            './vendor/highlight.js/styles/' + config.theme + '.css'
+    }
+
+    function linkify(element) {
+        linkifyElement(element, { target: { url: config.target } });
+    }
 
 }( this.JSONav = this.JSONav || {} ));

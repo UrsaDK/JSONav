@@ -3,53 +3,20 @@
  * extension. It's used to set event listeners and other core tasks.
  */
 
-(function (object, undefined) {
+(function (self, $, undefined) {
 
     var config = {
         message: {
-            listener: 'document-json-content',
-            dispatch: 'extension-json-view'
+            listener: 'document-content',
+            dispatch: 'extension-content'
         },
     };
 
-    var testJson = {
-        empty:      null,
-        positive:   true,
-        negative:   false,
-        nil:        0,
-        integer:    1,
-        neg_int:    -1,
-        float:      2.33,
-        empty_str:  '',
-        string:     'a simple string',
-        long_str:   'this is a long string which spans multiple lines \n in fact, the second line is so long that it often gets wrapped by the browser and is used to test line-wrapping capabilities of the formatter',
-        url:        'http://www.example.com/path/file.ext?query=true#hash',
-        rel_url:    '/path/file.ext?query#hash',
-        email:      'user@example.com',
-        empty_arr:  [],
-        array:      ['one', '2', 3, 4.01],
-        empty_hash: {},
-        level_1:    {
-            item1:      'first item in a folder',
-            item2:      'second item in a folder',
-            level_2:    {
-                item1:      'first item in a sub-folder',
-                item2:      'second item in a sub-folder',
-                item3:      'this is a long string which spans multiple lines \n in fact, the second line is so long that it often gets wrapped by the browser and is used to test line-wrapping capabilities of the formatter',
-            },
-        },
-    };
-
-    object.init = function () {
+    self.init = function () {
         document.write("<base href='" + safari.extension.baseURI + "'>");
         document.addEventListener("DOMContentLoaded", function(event) {
             safari.application.addEventListener('message', messageListener, false);
-        });
-    };
-
-    object.test = function () {
-        document.addEventListener("DOMContentLoaded", function(event) {
-            updateDocument(testJson);
+            safari.extension.settings.addEventListener('change', updateConfig, false);
         });
     };
 
@@ -60,18 +27,28 @@
         }
     }
 
+    function userSettings() {
+        return {
+            indent: Number(safari.extension.settings.indent) || String(safari.extension.settings.indent),
+            theme: String(safari.extension.settings.theme),
+            target: String(safari.extension.settings.target)
+        };
+    }
+
+    function updateConfig() {
+        JSONav.updateConfig(userSettings());
+    }
+
     function updateDocument(jsonObject) {
-        JSONav.init(jsonObject);
-        var newDocument = document.cloneNode(true);
-        newDocument.scripts.namedItem('global-js').remove();
-        newDocument.title = '';
-        return new XMLSerializer().serializeToString(newDocument);
+        var clone = document.cloneNode(true);
+        clone.title = '';
+        clone.scripts.namedItem('global-js').remove();
+        JSONav.init(jsonObject, userSettings(), clone);
+        return new XMLSerializer().serializeToString(clone);
     }
 
 }( this.Global = this.Global || {} ));
 
-if (typeof safari !== "undefined") {
+if (typeof safari !== 'undefined') {
     Global.init();
-} else {
-    Global.test();
 }

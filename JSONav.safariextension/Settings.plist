@@ -1,5 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array/>
+<array>
+	<dict>
+		<key>DefaultValue</key>
+		<string>4</string>
+		<key>Key</key>
+		<string>indent</string>
+		<key>Title</key>
+		<string>Indent</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>xcode</string>
+		<key>Key</key>
+		<string>theme</string>
+		<key>Title</key>
+		<string>Colour scheme</string>
+		<key>Titles</key>
+		<array>
+			<string>Agate</string>
+			<string>Androidstudio</string>
+			<string>Arduino Light</string>
+			<string>Arta</string>
+			<string>Ascetic</string>
+			<string>Atelier Cave Dark</string>
+			<string>Atelier Cave Light</string>
+			<string>Atelier Dune Dark</string>
+			<string>Atelier Dune Light</string>
+			<string>Atelier Estuary Dark</string>
+			<string>Atelier Estuary Light</string>
+			<string>Atelier Forest Dark</string>
+			<string>Atelier Forest Light</string>
+			<string>Atelier Heath Dark</string>
+			<string>Atelier Heath Light</string>
+			<string>Atelier Lakeside Dark</string>
+			<string>Atelier Lakeside Light</string>
+			<string>Atelier Plateau Dark</string>
+			<string>Atelier Plateau Light</string>
+			<string>Atelier Savanna Dark</string>
+			<string>Atelier Savanna Light</string>
+			<string>Atelier Seaside Dark</string>
+			<string>Atelier Seaside Light</string>
+			<string>Atelier Sulphurpool Dark</string>
+			<string>Atelier Sulphurpool Light</string>
+			<string>Atom One Dark</string>
+			<string>Atom One Light</string>
+			<string>Brown Paper</string>
+			<string>Codepen Embed</string>
+			<string>Color Brewer</string>
+			<string>Darcula</string>
+			<string>Dark</string>
+			<string>Darkula</string>
+			<string>Default</string>
+			<string>Docco</string>
+			<string>Dracula</string>
+			<string>Far</string>
+			<string>Foundation</string>
+			<string>Github Gist</string>
+			<string>Github</string>
+			<string>Googlecode</string>
+			<string>Grayscale</string>
+			<string>Gruvbox Dark</string>
+			<string>Gruvbox Light</string>
+			<string>Hopscotch</string>
+			<string>Hybrid</string>
+			<string>Idea</string>
+			<string>Ir Black</string>
+			<string>Kimbie Dark</string>
+			<string>Kimbie Light</string>
+			<string>Magula</string>
+			<string>Mono Blue</string>
+			<string>Monokai Sublime</string>
+			<string>Monokai</string>
+			<string>Obsidian</string>
+			<string>Ocean</string>
+			<string>Paraiso Dark</string>
+			<string>Paraiso Light</string>
+			<string>Pojoaque</string>
+			<string>Purebasic</string>
+			<string>Qtcreator Dark</string>
+			<string>Qtcreator Light</string>
+			<string>Railscasts</string>
+			<string>Rainbow</string>
+			<string>School Book</string>
+			<string>Solarized Dark</string>
+			<string>Solarized Light</string>
+			<string>Sunburst</string>
+			<string>Tomorrow Night Blue</string>
+			<string>Tomorrow Night Bright</string>
+			<string>Tomorrow Night Eighties</string>
+			<string>Tomorrow Night</string>
+			<string>Tomorrow</string>
+			<string>Vs</string>
+			<string>Xcode</string>
+			<string>Xt256</string>
+			<string>Zenburn</string>
+		</array>
+		<key>Type</key>
+		<string>PopUpButton</string>
+		<key>Values</key>
+		<array>
+			<string>agate</string>
+			<string>androidstudio</string>
+			<string>arduino-light</string>
+			<string>arta</string>
+			<string>ascetic</string>
+			<string>atelier-cave-dark</string>
+			<string>atelier-cave-light</string>
+			<string>atelier-dune-dark</string>
+			<string>atelier-dune-light</string>
+			<string>atelier-estuary-dark</string>
+			<string>atelier-estuary-light</string>
+			<string>atelier-forest-dark</string>
+			<string>atelier-forest-light</string>
+			<string>atelier-heath-dark</string>
+			<string>atelier-heath-light</string>
+			<string>atelier-lakeside-dark</string>
+			<string>atelier-lakeside-light</string>
+			<string>atelier-plateau-dark</string>
+			<string>atelier-plateau-light</string>
+			<string>atelier-savanna-dark</string>
+			<string>atelier-savanna-light</string>
+			<string>atelier-seaside-dark</string>
+			<string>atelier-seaside-light</string>
+			<string>atelier-sulphurpool-dark</string>
+			<string>atelier-sulphurpool-light</string>
+			<string>atom-one-dark</string>
+			<string>atom-one-light</string>
+			<string>brown-paper</string>
+			<string>codepen-embed</string>
+			<string>color-brewer</string>
+			<string>darcula</string>
+			<string>dark</string>
+			<string>darkula</string>
+			<string>default</string>
+			<string>docco</string>
+			<string>dracula</string>
+			<string>far</string>
+			<string>foundation</string>
+			<string>github-gist</string>
+			<string>github</string>
+			<string>googlecode</string>
+			<string>grayscale</string>
+			<string>gruvbox-dark</string>
+			<string>gruvbox-light</string>
+			<string>hopscotch</string>
+			<string>hybrid</string>
+			<string>idea</string>
+			<string>ir-black</string>
+			<string>kimbie.dark</string>
+			<string>kimbie.light</string>
+			<string>magula</string>
+			<string>mono-blue</string>
+			<string>monokai-sublime</string>
+			<string>monokai</string>
+			<string>obsidian</string>
+			<string>ocean</string>
+			<string>paraiso-dark</string>
+			<string>paraiso-light</string>
+			<string>pojoaque</string>
+			<string>purebasic</string>
+			<string>qtcreator_dark</string>
+			<string>qtcreator_light</string>
+			<string>railscasts</string>
+			<string>rainbow</string>
+			<string>school-book</string>
+			<string>solarized-dark</string>
+			<string>solarized-light</string>
+			<string>sunburst</string>
+			<string>tomorrow-night-blue</string>
+			<string>tomorrow-night-bright</string>
+			<string>tomorrow-night-eighties</string>
+			<string>tomorrow-night</string>
+			<string>tomorrow</string>
+			<string>vs</string>
+			<string>xcode</string>
+			<string>xt256</string>
+			<string>zenburn</string>
+		</array>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>_top</string>
+		<key>Key</key>
+		<string>target</string>
+		<key>Title</key>
+		<string>Open links in</string>
+		<key>Titles</key>
+		<array>
+			<string>current window</string>
+			<string>new window</string>
+		</array>
+		<key>Type</key>
+		<string>PopUpButton</string>
+		<key>Values</key>
+		<array>
+			<string>_top</string>
+			<string>_blank</string>
+		</array>
+	</dict>
+</array>
 </plist>

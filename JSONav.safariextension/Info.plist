@@ -5,9 +5,9 @@
 	<key>Author</key>
 	<string>Dmytro Konstantinov</string>
 	<key>Builder Version</key>
-	<string>11602.3.12.0.1</string>
+	<string>12602.4.8</string>
 	<key>CFBundleDisplayName</key>
-	<string>JSONav</string>
+	<string>JSON Navigator</string>
 	<key>CFBundleIdentifier</key>
 	<string>dk.umka.jsonav</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -27,12 +27,14 @@
 		<dict>
 			<key>End</key>
 			<array>
-				<string>inject/EndScript.js</string>
+				<string>inject/JSONav.js</string>
 			</array>
 		</dict>
 	</dict>
+	<key>Description</key>
+	<string>View JSON responses in a human-readable form: indented, syntax highlighted, with clickabble links.</string>
 	<key>DeveloperIdentifier</key>
-	<string>0000000000</string>
+	<string>QP76M669XR</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
@@ -45,5 +47,7 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Website</key>
+	<string>http://umka.dk/jsonav</string>
 </dict>
 </plist>
