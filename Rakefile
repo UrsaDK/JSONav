@@ -29,5 +29,5 @@ CONFIG = {
   },
 }
 
-task default: [:build, :include, 'build:safari']
+task default: [:build]
 Dir.glob('tasks/*.rake').each { |t| load t }
