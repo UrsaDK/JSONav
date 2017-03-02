@@ -1,5 +1,3 @@
-require 'rake/clean'
-
 CONFIG = {
 
   safari: {

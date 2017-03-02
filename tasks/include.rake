@@ -11,11 +11,11 @@ namespace :include do
 end
 
 def include_provided_resources(task)
-  ext = task.name.split(':').last.to_sym
-  dir = vendor_path_for ext
+  lib = task.name.split(':').last.to_sym
+  dir = vendor_path_for lib
 
-  CONFIG[ext][:provides].each do |src|
-    src = File.join File.dirname(__dir__), CONFIG[ext][:base_dir], src
+  CONFIG[lib][:provides].each do |src|
+    src = File.join File.dirname(__dir__), CONFIG[lib][:base_dir], src
     dest = File.join dir, File.basename(src)
     include_resource src, dest
   end
@@ -30,10 +30,10 @@ def include_resource(src, dest)
   end
 end
 
-def vendor_path_for(ext)
+def vendor_path_for(name)
   dir = File.join File.dirname(__dir__),
             CONFIG[:safari][:base_dir],
             CONFIG[:safari][:vendor_dir],
-            File.basename(CONFIG[ext.to_sym][:base_dir])
+            File.basename(CONFIG[name.to_sym][:base_dir])
   mkdir_p dir, verbose: true
 end
