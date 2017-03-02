@@ -69,15 +69,6 @@ A list of planned features and issues that needs to be addressed before this ext
 
 - [x] Automate build via Rake
 
-- [ ] Make sure that `rake clean` does all of the following:
-
-    ```
-    git reset --hard
-    git submodule foreach reset --hard
-    git clean -d --force
-    git submodule foreach clean -d --force
-    ```
-
 - [ ] Rewrite in ECMAScript 6
 
 - [ ] Add browser tests via [selenium-cucumber](https://seleniumcucumber.info)
