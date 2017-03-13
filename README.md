@@ -57,9 +57,9 @@ If you wish to try the latest development release then you have two choices:
 
 JSON Navigator relies on a number of 3rd party libraries to do the heavy lifting:
 
-  - @isagalaev/highlight.js - is used to provide syntax highlighting and colour themes (77 of them!).
+  - [isagalaev/highlight.js](https://github.com/isagalaev/highlight.js) - is used to provide syntax highlighting and colour themes (77 of them!).
 
-  - @SoapBox/linkifyjs - is used to find links in plain-text and converting them to HTML `<a>` tags.
+  - [SoapBox/linkifyjs](https://github.com/SoapBox/linkifyjs) - is used to find links in plain-text and converting them to HTML `<a>` tags.
 
 
 [safari_ext]: #
