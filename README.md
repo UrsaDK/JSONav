@@ -1,7 +1,7 @@
 JSON Navigator
 ==============
 
-**Version:** 0.1  
+**Version:** pre-release  
 **Status:** Fully functional, but missing tests.
 
 Further details of the status of the project are in the "Development Roadmap" section.
@@ -60,27 +60,6 @@ JSON Navigator relies on a number of 3rd party libraries to do the heavy lifting
   - @isagalaev/highlight.js - is used to provide syntax highlighting and colour themes (77 of them!).
 
   - @SoapBox/linkifyjs - is used to find links in plain-text and converting them to HTML `<a>` tags.
-
-Development Roadmap
--------------------
-
-A list of planned features and issues that needs to be addressed before this extension can be considered at:
-
-### 1.0
-
-- [x] Automate build via Rake
-
-- [ ] Rewrite in ECMAScript 6
-
-- [ ] Add browser tests via [selenium-cucumber](https://seleniumcucumber.info)
-
-### 1.1
-
-- [ ] Implement an additional object-viewer, possibly using @xyc/react-object-inspector
-
-### 1.2
-
-- [ ] Add support for JSONP
 
 
 [safari_ext]: #
