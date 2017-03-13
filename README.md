@@ -4,8 +4,6 @@ JSON Navigator
 **Version:** pre-release  
 **Status:** Fully functional, but missing tests.
 
-Further details of the status of the project are in the "Development Roadmap" section.
-
 About JSONav
 ------------
 
@@ -21,7 +19,7 @@ This extension is designed as a development tool with the following goals:
 
     As a result, this extension will only highlight valid JSON responses from `http` or `https` protocols which identify their content either via *Content-Type* header (eg: `application/json`) or via the filename extension (ie: `.json`).
 
-In short, JSONav is fast, minimalist, won't slow your system down, and if it isn't highlighting JSON content returned by a page then it is most likely that there is a problem with the endpoint!
+In short, JSONav is fast, minimalist, won't slow your system down, and if it isn't highlighting JSON content returned by a page then it is highly likely that there is a problem with the endpoint!
 
 How to Install
 --------------
