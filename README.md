@@ -11,7 +11,7 @@ About JSONav
 
 JSON Navigator (JSONav) is a Safari extension used to display JSON responses in a human-readable form: indented, syntax highlighted, with clickable links.
 
-This extension is primarily designed as a development tool as such, its goals are:
+This extension is designed as a development tool with the following goals:
 
   - minimal size of the injected code
   - minimal interference with the loaded content
@@ -45,6 +45,7 @@ If you wish to try the latest development release then you have two choices:
           bundle exec rake install build
 
   This would build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the repository. To use it, you would have to:
+
     - allow the use of unsigned extensions in Safari:  
     *Safari Menu > Develop > Allow Unsigned Extensions*
 
