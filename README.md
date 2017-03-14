@@ -76,4 +76,4 @@ JSON Navigator relies on a number of 3rd party libraries to do the heavy lifting
 
 
 [apple_download]: https://safari-extensions.apple.com
-[github_downloadt]: https://github.com/UmkaDK/JSONav/raw/master/build/JSONav.safariextz
+[github_download]: https://github.com/UmkaDK/JSONav/raw/master/build/JSONav.safariextz
