@@ -1,7 +1,7 @@
 JSON Navigator
 ==============
 
-<img src="./JSONav.safariextension/Icon.png" alt="JSONav" align="left" width="75">][github_download]
+<img src="./JSONav.safariextension/Icon.png" alt="JSONav" align="left" width="75">
 
 **Version:** pre-release  
 **Status:** Fully functional, but missing tests.  
