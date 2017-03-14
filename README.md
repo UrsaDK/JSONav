@@ -52,7 +52,7 @@ If you wish to try the latest development release then you have two choices:
 
      To use this method you would have to be comfortable in a Terminal, as you might be required to diagnose and repair any potential build issues.
 
-     The following set commands should get you started:
+     The following set of commands should get you started:
 
          git clone https://github.com/UmkaDK/JSONav.git
          bundle install
