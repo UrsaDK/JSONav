@@ -77,5 +77,5 @@ JSON Navigator relies on a number of 3rd party libraries to do the heavy lifting
   - [SoapBox/linkifyjs](https://github.com/SoapBox/linkifyjs) - is used to find links in plain-text and converting them to HTML `<a>` tags.
 
 
-[safari_ext]: #
-[github_ext]: #
+[safari_ext]: https://safari-extensions.apple.com
+[github_ext]: ./build/JSONav.safariextz
