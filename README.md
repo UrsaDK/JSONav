@@ -1,6 +1,10 @@
 JSON Navigator
 ==============
 
+<img alt="JSONav"
+  src="./JSONav.safariextension/Icon.png"
+  style="float: left; height: 3em; padding-right: 1em;">
+
 **Version:** pre-release  
 **Status:** Fully functional, but missing tests.
 
@@ -9,15 +13,26 @@ About JSONav
 
 JSON Navigator (JSONav) is a Safari extension used to display JSON responses in a human-readable form: indented, syntax highlighted, with clickable links.
 
-This extension is designed as a development tool with the following goals:
+This extension is designed with the following goals in mind:
 
   - minimal size of the injected code
+
+    Under no circumstances should this extension interfere with or slow down the current browser session.
+
   - minimal interference with the loaded content
+
+    JSONav should be very conservative in it's determination of what browser contents is to be altered, and should only be applied to pages that match an exact set of rules:
+
+    - Pages must be server over `http` or `https`;
+    - Page content must be identified either by *Content-Type* header (eg: `application/json`) or via the filename extension (ie: `.json`).
+
   - standard compliant, only valid content is highlighted
 
-    There is plenty of tools out there that will try to repair JSON content, making a very good job of highlighting it. However, what I needed was a tool that would alert me to the fact that there are issues with the content returned by an endpoint.
+    This extension will only highlight valid JSON content. Thus, effectively validating JSON content returned by an endpoint.
 
-    As a result, this extension will only highlight valid JSON responses from `http` or `https` protocols which identify their content either via *Content-Type* header (eg: `application/json`) or via the filename extension (ie: `.json`).
+  - close integration with the browser eco-system
+
+    JSONav looks and feels like part of the browsers. Where ever possible it reuses default fonts and styling providing a consistent and familiar styling, established by default browsers tools (eg: XML parser).
 
 In short, JSONav is fast, minimalist, won't slow your system down, and if it isn't highlighting JSON content returned by a page then it is highly likely that there is a problem with the endpoint!
 
