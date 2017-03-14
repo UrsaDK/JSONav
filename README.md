@@ -43,25 +43,25 @@ If you wish to try the latest development release then you have two choices:
 
   1. [Download the latest build][github_ext]
 
-    The latest signed build of the extension is available in the `build` directory of this repository. Once the file is downloaded, it can be installed by double clicking on it.
+     The latest signed build of the extension is available in the `build` directory of this repository. Once the file is downloaded, it can be installed by double clicking on it.
 
   2. Build the extension from scratch.
 
-    To use this method you would have to be comfortable in a Terminal, as you might be required to diagnose and repair any potential build issues.
+     To use this method you would have to be comfortable in a Terminal, as you might be required to diagnose and repair any potential build issues.
 
-    The following set commands should get you started:
+     The following set commands should get you started:
 
-        git clone https://github.com/UmkaDK/JSONav.git
-        bundle install
-        bundle exec rake install build
+         git clone https://github.com/UmkaDK/JSONav.git
+         bundle install
+         bundle exec rake install build
 
-    This would build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the repository. To use it, you would have to:
+     This would build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the repository. To use it, you would have to:
 
-      - allow the use of unsigned extensions in Safari:  
-        *Safari Menu > Develop > Allow Unsigned Extensions*
+       - allow the use of unsigned extensions in Safari:  
+         *Safari Menu > Develop > Allow Unsigned Extensions*
 
-      - install the extension via the extension builder:  
-        *Safari Menu > Develop > Show Extension Builder > + > Add Extension...*
+       - install the extension via the extension builder:  
+         *Safari Menu > Develop > Show Extension Builder > + > Add Extension...*
 
 3rd Party Libraries
 -------------------
