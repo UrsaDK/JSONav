@@ -33,7 +33,7 @@ This extension is designed with the following goals in mind:
 
   - close integration with the browser eco-system
 
-    JSONav looks and feels like part of the browsers. Where ever possible it reuses default fonts and styling providing a consistent and familiar styling, established by default browsers tools (eg: XML parser).
+    JSONav looks and feels like part of the browsers. Wherever possible it reuses default fonts and styling providing a consistent and familiar styling, established by default browsers tools (eg: XML parser).
 
 In short, JSONav is fast, minimalist, won't slow your system down, and if it isn't highlighting JSON content returned by a page then it is highly likely that there is a problem with the endpoint!
 
@@ -42,13 +42,13 @@ How to Install
 
 The easiest way to install this extension is via Apple's [Safari Extensions][apple_download] repository.
 
-If you wish to try the latest development release then you have two choices:
+If you wish to try the latest development release, then you have two choices:
 
   1. [Download the latest build][github_download]
 
      The latest signed build of the extension is available in the `build` directory of this repository. Once the file is downloaded, it can be installed by double clicking on it.
 
-  2. Build the extension from scratch.
+  2. Build the extension from scratch
 
      To use this method you would have to be comfortable in a Terminal, as you might be required to diagnose and repair any potential build issues.
 
@@ -58,7 +58,7 @@ If you wish to try the latest development release then you have two choices:
          bundle install
          bundle exec rake install build
 
-     This would build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the repository. To use it, you would have to:
+     This will build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the repository. To use it, you would have to:
 
        - allow the use of unsigned extensions in Safari:  
          *Safari Menu > Develop > Allow Unsigned Extensions*
