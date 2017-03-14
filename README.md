@@ -1,8 +1,10 @@
 JSON Navigator
 ==============
 
-<img src="./JSONav.safariextension/Icon.png"
-  alt="JSONav" align="left" width="50">
+<a href="./build/JSONav.safariextz">
+  <img src="./JSONav.safariextension/Icon.png" 
+    alt="JSONav" align="left" width="50">
+</a>
 
 **Version:** pre-release  
 **Status:** Fully functional, but missing tests.
@@ -12,8 +14,8 @@ About JSONav
 
 JSON Navigator (JSONav) is a Safari extension used to display JSON responses in a human-readable form: indented, syntax highlighted, with clickable links.
 
-<a href="./Screenshot.png"><img src="./Screenshot.png"
-  alt="JSONav screenshot" align="right" width="50%"></a>
+<img src="./Screenshot.png"
+  alt="JSONav screenshot" align="right" width="50%">
 
 This extension is designed with the following goals in mind:
 
