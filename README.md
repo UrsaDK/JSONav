@@ -1,10 +1,7 @@
 JSON Navigator
 ==============
 
-<a href="./build/JSONav.safariextz">
-  <img src="./JSONav.safariextension/Icon.png" 
-    alt="JSONav" align="left" width="50">
-</a>
+[<img src="./JSONav.safariextension/Icon.png" alt="JSONav" align="left" width="50">][github_download]
 
 **Version:** pre-release  
 **Status:** Fully functional, but missing tests.
@@ -14,8 +11,7 @@ About JSONav
 
 JSON Navigator (JSONav) is a Safari extension used to display JSON responses in a human-readable form: indented, syntax highlighted, with clickable links.
 
-<img src="./Screenshot.png"
-  alt="JSONav screenshot" align="right" width="50%">
+<img src="./Screenshot.png" alt="JSONav screenshot" align="right" width="50%">
 
 This extension is designed with the following goals in mind:
 
@@ -43,11 +39,11 @@ In short, JSONav is fast, minimalist, won't slow your system down, and if it isn
 How to Install
 --------------
 
-The easiest way to install this extension is via Apple's [Safari Extensions][safari_ext] repository.
+The easiest way to install this extension is via Apple's [Safari Extensions][apple_download] repository.
 
 If you wish to try the latest development release then you have two choices:
 
-  1. [Download the latest build][github_ext]
+  1. [Download the latest build][github_download]
 
      The latest signed build of the extension is available in the `build` directory of this repository. Once the file is downloaded, it can be installed by double clicking on it.
 
@@ -79,5 +75,5 @@ JSON Navigator relies on a number of 3rd party libraries to do the heavy lifting
   - [SoapBox/linkifyjs](https://github.com/SoapBox/linkifyjs) - is used to find links in plain-text and converting them to HTML `<a>` tags.
 
 
-[safari_ext]: https://safari-extensions.apple.com
-[github_ext]: ./build/JSONav.safariextz
+[apple_download]: https://safari-extensions.apple.com
+[github_downloadt]: https://github.com/UmkaDK/JSONav/raw/master/build/JSONav.safariextz
