@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Dmytro Konstantinov</string>
 	<key>Builder Version</key>
-	<string>12602.4.8</string>
+	<string>12603.1.30.0.34</string>
 	<key>CFBundleDisplayName</key>
 	<string>JSON Navigator</string>
 	<key>CFBundleIdentifier</key>
@@ -19,7 +19,7 @@
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
-		<string>Global.html</string>
+		<string>Extension.html</string>
 	</dict>
 	<key>Content</key>
 	<dict>

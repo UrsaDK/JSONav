@@ -10,58 +10,64 @@
  * https://developer.apple.com/library/content/documentation/Tools/Conceptual/SafariExtensionGuide/InjectingScripts/InjectingScripts.html
  */
 
-(function(self, $, undefined) {
+'use strict';
 
-    var object = null,
-        config = {
-            message: {
-                listener: 'extension-content',
-                dispatch: 'document-content'
-            }
-        };
+class JSONav {
 
-    self.init = function () {
-        var content = document.body.textContent;
+    const config = new Map()
+        .add('message.listenerId', 'extension-content')
+        .add('message.dispatchId', 'document-content')
+        .add('valid.protocols', Set(['file:', 'http:', 'https:']));
 
-        if (content && expectedContent() && setJsonObject(content)) {
+    let navObject = null;
+
+    constructor() {
+        const content = document.body.textContent;
+
+        if (content && isExpectedContent() && setNavObject(content)) {
             safari.self.addEventListener('message', messageListener, false);
-            safari.self.tab.dispatchMessage(config.message.dispatch, object);
+            safari.self.tab.dispatchMessage(config.get('message.dispatchId'), navObject);
         }
-    };
+    }
 
-    function messageListener(event) {
-        if (event.name === config.message.listener) {
+    messageListener(event) {
+        if (event.name === config.get('message.listenerId')) {
             updateDocument(event.message);
         }
     }
 
-    function updateDocument(documentString) {
+    updateDocument(documentString) {
         document.write(documentString);
     }
 
-    function expectedContent() {
-        if (document.location.protocol.match(/^(file|http|https):$/) &&
-            (document.contentType.match(/.*\/(.*\+)?json$/) ||
-                document.location.pathname.match(/.*\.json$/))) {
-
-            return true;
-        }
-        return false;
+    isExpectedContent() {
+        return isValidProtocol() && (isValidContentType() || isValidPathname());
     }
 
-    function setJsonObject(string) {
+    isValidProtocol() {
+        return config.get('valid.protocols').has(document.location.protocol);
+    }
+
+    isValidContentType() {
+        return document.contentType.endsWith('json');
+    }
+
+    isValidPathname() {
+        return document.location.pathname.endsWith('.json');
+    }
+
+    setNavObject(string) {
         try {
-            object = JSON.parse(string);
+            navObject = JSON.parse(string);
         } catch (e) {
             return false;
         }
 
         return true;
     }
-
-}( this.JSONav = this.JSONav || {} ));
+}
 
 // Run only in the top most window
 if ((typeof safari !== 'undefined') && (window === window.top)) {
-    JSONav.init();
+    new JSONav();
 }
