@@ -1,34 +1,26 @@
 <!DOCTYPE HTML>
-<html lang="en">
-  <!--
-  This page is loaded only when Safari first loads this extension, but
-  it is never displayed. It exists as a container for JavaScript. You
-  can add JavaScript to your global page inline, or include it in
-  a separate file or files in your extension.
-  -->
-
+<html>
   <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- <meta http&#45;equiv="Content&#45;Security&#45;Policy" content="default&#45;src 'none'; style&#45;src 'self' 'unsafe&#45;inline' https://cdn.jsdelivr.net; script&#45;src 'self' 'unsafe&#45;inline' https://cdn.jsdelivr.net; connect&#45;src 'self'; font&#45;src 'self' https://cdn.jsdelivr.net; img&#45;src 'self';"> -->
-
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self';">
     <title>JSON Navigator</title>
-
     <link href="" rel="stylesheet" id="highlight-theme">
-    <script src="./vendor/highlight.js/highlight.pack.js"></script>
-
-    <script src="./vendor/linkify.js/linkify.min.js"></script>
-    <script src="./vendor/linkify.js/linkify-element.min.js"></script>
-
-    <link href="./Extension.css" rel="stylesheet" class="resources">
-    <script src="./Extension.js" class="resources"></script>
+    <link href="./Extension.css" rel="stylesheet">
   </head>
 
   <body>
     <header>
-        This JSON file does not appear to have any schema associated with it. The document tree is shown below.
+      This JSON file does not appear to have any schema associated with it. The document tree is shown below.
     </header>
+
     <article id="raw"></article>
     <article id="nav"></article>
+
+    <footer>
+      <script src="./vendor/highlight.js/highlight.pack.js"></script>
+      <script src="./vendor/linkify.js/linkify.min.js"></script>
+      <script src="./vendor/linkify.js/linkify-element.min.js"></script>
+      <script src="./Extension.js"></script>
+    </footer>
   </body>
 </html>

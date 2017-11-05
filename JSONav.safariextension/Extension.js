@@ -1,84 +1,103 @@
 /**
- * This script is loaded only when Safari first loads Extension.html for this
- * extension. It's used to set event listeners and other core tasks.
- */
+* This script is loaded only when Safari first loads Extension.html for this
+* extension. It's used to set event listeners and other core tasks.
+*/
 
 'use strict';
 
 class Extension {
 
-    const config = new Map()
-        .add('message.listenerId', 'document-content')
-        .add('message.dispatchId', 'extension-content')
-        .add('document.themeId', 'highlight-theme');
-        .add('document.rawId', 'raw')
-        .add('document.navId', 'nav')
-
-    const settings = new Map()
-        .add('indent', 4)
-        .add('theme', 'xcode')
-        .add('target', '_top');
-
-    constructor() {
-        locateResources();
-        document.addEventListener("DOMContentLoaded", function(event) {
-            safari.application.addEventListener('message', messageListener, false);
-            safari.extension.settings.addEventListener('change', updateSettings, false);
-        });
-    };
-
-    locateResources() {
-        // TODO: Stop using basepath and instaead update all href in the <head>
-        document.write("<base href='" + safari.extension.baseURI + "'>");
+  constructor(inject = {}) {
+    if (typeof inject !== 'object') {
+      throw `Unsupported inject value -- ${typeof inject}`
     }
 
-    messageListener(event) {
-        if (event.name === config.get('message.listenerId')) {
-            const result = updateDocument(event.message);
-            event.target.page.dispatchMessage(config.get('message.dispatchId'), result);
-        }
-    }
+    this._config = inject.config || new Map()
+      .set('message.listenerId', 'document-content')
+      .set('message.dispatchId', 'extension-content')
+      .set('document.themeId', 'highlight-theme')
+      .set('document.rawId', 'raw')
+      .set('document.navId', 'nav');
 
-    updateSettings(event) {
-        settings.set(event.key, Number(event.newValue) || String(event.newValue));
-    }
+    this._settings = inject.settings || new Map()
+      .set('indent', 4)
+      .set('theme', 'xcode')
+      .set('target', '_top');
 
-    updateDocument(navObject) {
-        const clone = getDocumentClone();
-        updateRawView(navObject, clone);
-        updateNavView(navObject, clone);
-        return new XMLSerializer().serializeToString(clone);
-    }
+    this._safari = inject.safari || window.safari
+    this._document = inject.document || window.document;
 
-    getDocumentClone() {
-        const clone = document.cloneNode(true);
-        clone.title = undefined; // Don't override original title
-        clone.scripts.remove();  // Display document needs no scripts
-        return clone;
-    }
+    this.safari.application.addEventListener('message', e => this.messageListener(e), false);
+    this.safari.extension.settings.addEventListener('change', e => this.updateSetting(e), false);
+  };
 
-    updateRawView(navObject, clone) {
-        const element = clone.getElementById(config.get('document.rawId'));
-        element.innerHTML = JSON.stringify(navObject, null, settings.get('indent'));
-        highlight(element, clone);
-        linkify(element);
-    }
+  get config() {
+    return this._config;
+  }
 
-    updateNavView(navObject, clone) {
-        const element = clone.getElementById(config.get('document.navId'));
-    }
+  get settings() {
+    return this._settings;
+  }
 
-    highlight(element, clone) {
-        const style = clone.getElementById(config.get('document.themeId'));
-        style.href = "%{safari.extension.baseURI}/vendor/highlight.js/styles/%{setting.get('theme')}.css"
-        hljs.highlightBlock(element);
-    }
+  get safari() {
+    return this._safari;
+  }
 
-    linkify(element) {
-        linkifyElement(element, { target: { url: settings.get('target') }});
+  get document() {
+    if (this._cache === undefined) {
+      this._cache = this._document.cloneNode(true);
+      this._cache.getElementsByTagName("title")[0].remove();
+      Array.from(this._cache.scripts).forEach((script) => {
+        script.parentNode.removeChild(script);
+      });
+      Array.from(this._cache.getElementsByTagName('link')).forEach((style) => {
+        if (style.href.length != 0) { style.href = style.href; }
+      });
     }
+    return this._cache;
+  }
+
+  messageListener(event) {
+    if (event.name === this.config.get('message.listenerId')) {
+      const result = this.updateDocument(event.message);
+      event.target.page.dispatchMessage(this.config.get('message.dispatchId'), result);
+      delete this._cache;
+    }
+  }
+
+  updateSetting(event) {
+    const value = Number(event.newValue) || String(event.newValue)
+    this.settings.set(event.key, value);
+  }
+
+  updateDocument(navObject) {
+    this.updateRawView(navObject);
+    this.updateNavView(navObject);
+    return new XMLSerializer().serializeToString(this.document);
+  }
+
+  updateRawView(navObject) {
+    const element = this.document.getElementById(this.config.get('document.rawId'));
+    element.innerHTML = JSON.stringify(navObject, null, this.settings.get('indent'));
+    this.highlight(element);
+    this.linkify(element);
+  }
+
+  updateNavView(navObject) {
+    const element = this.document.getElementById(this.config.get('document.navId'));
+  }
+
+  highlight(element) {
+    const style = this.document.getElementById(this.config.get('document.themeId'));
+    style.href = `${this.safari.extension.baseURI}vendor/highlight.js/styles/${this.settings.get('theme')}.css`
+    hljs.highlightBlock(element);
+  }
+
+  linkify(element) {
+    linkifyElement(element, { target: { url: this.settings.get('target') }});
+  }
 }
 
-if (typeof safari !== 'undefined') {
-    new Extension();
+if ((typeof safari !== 'undefined') && (typeof safari.application !== 'undefined')) {
+  window.onload = new Extension();
 }
