@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Safari extension to display human-readable JSON: indented, syntax highlighted, with clickable links.",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+    "test": "./node_modules/karma/bin/karma start ./tests/karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,15 @@
   "bugs": {
     "url": "https://github.com/UmkaDK/JSONav/issues"
   },
-  "homepage": "https://github.com/UmkaDK/JSONav#readme",
+  "homepage": "http://umka.dk/jsonav",
   "devDependencies": {
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.6.0",
-    "karma-safari-launcher": "^1.0.0"
+    "jasmine": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-jquery": "^0.2.2",
+    "karma-requirejs": "^1.1.0",
+    "karma-safari-launcher": "git+https://github.com/RLovelett/karma-safari-launcher.git#safari-webdriver",
+    "requirejs": "^2.1.11"
   }
 }
