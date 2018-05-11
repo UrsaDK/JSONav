@@ -22,7 +22,7 @@ class JSONav {
     this._config = inject.config || new Map()
     .set('message.listenerId', 'extension-content')
     .set('message.dispatchId', 'document-content')
-    .set('valid.protocols', new Set(['file:', 'http:', 'https:']));
+    .set('valid.protocols', new Set(['http:', 'https:']));
 
     this._safari = inject.safari || window.safari
     this._document = inject.document || window.document;

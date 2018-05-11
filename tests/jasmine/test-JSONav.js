@@ -35,7 +35,6 @@ define(['JSONav'], () => {
 
       it('should support valid protocols', () => {
         expect(jsonav.config.get('valid.protocols')).toBeSetWithValues([
-          'file:',
           'http:',
           'https:'
         ]);

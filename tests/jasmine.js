@@ -20,8 +20,8 @@ require.config({
     'JSONav': 'inject/JSONav',
 
     'highlight': 'vendor/highlight.js/highlight.pack',
-    'linkify': 'vendor/linkify.js/linkify.min',
-    'linkify-element': 'vendor/linkify.js/linkify-element.min',
+    'linkify': 'vendor/linkifyjs/linkify.min',
+    'linkify-element': 'vendor/linkifyjs/linkify-element.min',
   },
 
   // dynamically load all files in /test/jasmine
