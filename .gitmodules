@@ -1,6 +1,7 @@
 [submodule "highlight.js"]
 	path = vendor/highlight.js
 	url = https://github.com/isagalaev/highlight.js.git
-[submodule "linkifyjs"]
-	path = vendor/linkify.js
+[submodule "vendor/linkifyjs"]
+	path = vendor/linkifyjs
 	url = https://github.com/SoapBox/linkifyjs.git
+	branch = master
