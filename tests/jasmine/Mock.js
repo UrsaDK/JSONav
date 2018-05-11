@@ -11,7 +11,7 @@ class Mock {
         settings: {
           addEventListener: jasmine.createSpy('safari.extension.settings.addEventListener'),
         },
-        baseURI: 'http://localhost:9876/base/JSONav.safariextension/',
+        baseURI: '/base/JSONav.safariextension/',
       },
 
       self: {

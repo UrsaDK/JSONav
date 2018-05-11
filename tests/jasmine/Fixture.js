@@ -1,7 +1,7 @@
 'use strict';
 
 class Fixture {
-  constructor(file, base_url = 'http://localhost:9876/base/tests/fixtures') {
+  constructor(file, base_url = '/base/tests/fixtures') {
     this.uri = `${base_url}/${file}`
     this.textContent = this.fetch(this.uri.href);
   }
