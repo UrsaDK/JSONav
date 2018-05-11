@@ -7,10 +7,15 @@ define(['highlight', 'linkify', 'linkify-element', 'Extension'], () => {
 
     beforeAll(() => {
       jasmine.addMatchers(Matchers);
-      globalPage = new Fixture(
-        'Extension.html',
-        'http://localhost:9876/base/JSONav.safariextension'
-      );
+      globalPage = new Fixture('Extension.html', '/base/JSONav.safariextension');
+    });
+
+    describe('loaded in Safari', () => {
+      it('should not throw an exception', () => {
+        window.safari = Mock.safari();
+        extension = () => { new Extension(); }
+        expect(extension).not.toThrow();
+      });
     });
 
     describe('with invalid constructor argument', () => {
