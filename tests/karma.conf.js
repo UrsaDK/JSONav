@@ -93,11 +93,11 @@ module.exports = function(config) {
 
     coverageReporter: {
       includeAllSources: false,
-      dir: 'tests',
+      dir: '.',
       reporters: [
         {type: 'text'},
-        {type: 'text', subdir: '.', file: 'README'},
-        {type: 'html', subdir: 'coverage'},
+        {type: 'text', subdir: 'tests', file: 'README'},
+        {type: 'html', subdir: 'docs/tests-coverage'},
       ]
     },
   })
