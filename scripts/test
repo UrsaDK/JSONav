@@ -7,11 +7,11 @@ VERSION='1.0.0'
 __help() {
 cat << EOS
 Usage:
-    $(basename ${0}) [options] [arguments]
+    $(basename ${0}) [options]
 
-    THIS SCRIPT SHOULD BE INVOKED VIA "npm run vendor-install"
+    THIS SCRIPT SHOULD BE INVOKED VIA `npm test`
 
-    Install built vendor libraries into the extension directory.
+    Test built extension to ensure that it's compatibility with Safari.
 
         Options                 All options are optional and
         -------                 can be supplied in any order.
@@ -20,12 +20,6 @@ Usage:
         -q --quiet              Suppress output of the script
         -? --help               Display this help message
         --version               Script and BASH version info
-
-        Arguments               All agruments are optionals and
-        ---------               can be supplied in any order.
-
-        highlight.js            Install highlight.js
-        linkifyjs               Install linkifyjs
 
     <> - required parameters    [] - optional parameters
 EOS
@@ -105,27 +99,14 @@ trap __exit EXIT
 __init
 
 # Process all supplied arguments
-for ARG in ${@:-highlight.js linkifyjs}; do
-    echo -e "\n** Installing ${ARG} **\n"
-    case ${ARG} in
-        'highlight.js')
-            (
-                mkdir -p ./JSONav.safariextension/vendor/highlight.js
-                cp -f ./vendor/highlight.js/build/highlight.pack.js ./JSONav.safariextension/vendor/highlight.js/
-                cp -Rf ./vendor/highlight.js/build/demo/styles ./JSONav.safariextension/vendor/highlight.js/
-            )
-            ;;
-        'linkifyjs')
-            (
-                mkdir -p ./JSONav.safariextension/vendor/linkifyjs
-                cp -f ./vendor/linkifyjs/dist/{linkify.min.js,linkify-element.min.js} ./JSONav.safariextension/vendor/linkifyjs/
-            )
-            ;;
-        *)
-            # Fail if invalid argument is given
-            echo "${0}: illegal argument -- ${ARG}" >&2
-            __help
-            exit 30
-            ;;
-    esac
-done
+if [[ -n ${@} ]]; then
+  echo "${0}: illegal argument -- ${@}" >&2
+  __help
+  exit 30
+fi
+
+# Exit immediately if any of the following command exits with a non-zero status
+set -e
+
+plutil -lint ./JSONav.safariextension/Settings.plist
+./node_modules/karma/bin/karma start ./tests/karma.conf.js

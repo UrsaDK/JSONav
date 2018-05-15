@@ -2,16 +2,21 @@
 
 VERSION='1.0.0'
 
+: ${CMD_PLIST_BUDDY:="/usr/libexec/PlistBuddy"}
+: ${JSONAV_INFO_PLIST:="./JSONav.safariextension/Info.plist"}
+: ${JSONAV_SETTINGS_PLIST:="./JSONav.safariextension/Settings.plist"}
+
 # Document available command line options. This function
 # simply outputs script's SYNOPSIS to the user terminal.
 __help() {
 cat << EOS
 Usage:
-    $(basename ${0}) [options] [arguments]
+    $(basename ${0}) [options] <release-version>
 
-    THIS SCRIPT SHOULD BE INVOKED VIA "npm run vendor-install"
+    THIS SCRIPT SHOULD BE INVOKED VIA "npm install"
 
-    Install built vendor libraries into the extension directory.
+    Reconfigure extensions settings based on the values supplied in
+    package.json and available highlight.js styles.
 
         Options                 All options are optional and
         -------                 can be supplied in any order.
@@ -24,8 +29,7 @@ Usage:
         Arguments               All agruments are optionals and
         ---------               can be supplied in any order.
 
-        highlight.js            Install highlight.js
-        linkifyjs               Install linkifyjs
+        highlight.js            Build highlight.js
 
     <> - required parameters    [] - optional parameters
 EOS
@@ -105,27 +109,29 @@ trap __exit EXIT
 __init
 
 # Process all supplied arguments
-for ARG in ${@:-highlight.js linkifyjs}; do
-    echo -e "\n** Installing ${ARG} **\n"
-    case ${ARG} in
-        'highlight.js')
-            (
-                mkdir -p ./JSONav.safariextension/vendor/highlight.js
-                cp -f ./vendor/highlight.js/build/highlight.pack.js ./JSONav.safariextension/vendor/highlight.js/
-                cp -Rf ./vendor/highlight.js/build/demo/styles ./JSONav.safariextension/vendor/highlight.js/
-            )
-            ;;
-        'linkifyjs')
-            (
-                mkdir -p ./JSONav.safariextension/vendor/linkifyjs
-                cp -f ./vendor/linkifyjs/dist/{linkify.min.js,linkify-element.min.js} ./JSONav.safariextension/vendor/linkifyjs/
-            )
-            ;;
-        *)
-            # Fail if invalid argument is given
-            echo "${0}: illegal argument -- ${ARG}" >&2
-            __help
-            exit 30
-            ;;
-    esac
+if [[ -n ${@} ]]; then
+  echo "${0}: illegal argument -- ${@}" >&2
+  __help
+  exit 30
+fi
+
+# Exit immediately if any of the following command exits with a non-zero status
+set -e
+
+echo -e "\n** Updating colour schemes **\n"
+${CMD_PLIST_BUDDY} -c "Delete :1:Titles" ${JSONAV_SETTINGS_PLIST}
+${CMD_PLIST_BUDDY} -c "Add    :1:Titles array" ${JSONAV_SETTINGS_PLIST}
+
+${CMD_PLIST_BUDDY} -c "Delete :1:Values" ${JSONAV_SETTINGS_PLIST}
+${CMD_PLIST_BUDDY} -c "Add    :1:Values array" ${JSONAV_SETTINGS_PLIST}
+
+for value in $(find ./JSONav.safariextension/vendor/highlight.js/styles -name *.css -exec basename {} ".css" \; | sort ); do
+    title=$(echo $value | tr "_-." " " | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')
+    ${CMD_PLIST_BUDDY} -c "Add :1:Titles: string '${title}'" ${JSONAV_SETTINGS_PLIST}
+    ${CMD_PLIST_BUDDY} -c "Add :1:Values: string '${value}'" ${JSONAV_SETTINGS_PLIST}
 done
+
+echo -e "\n** Updating version number **\n"
+RELEASE_VERSION=$(node -pe "require('./package.json').version")
+${CMD_PLIST_BUDDY} -c "Set :CFBundleShortVersionString ${RELEASE_VERSION}" ${JSONAV_INFO_PLIST}
+${CMD_PLIST_BUDDY} -c "Set :CFBundleVersion ${RELEASE_VERSION}" ${JSONAV_INFO_PLIST}

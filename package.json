@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "A Safari extension to display human-readable JSON: indented, syntax highlighted, with clickable links.",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start ./tests/karma.conf.js",
+    "test": "./scripts/test",
     "preinstall": "rm -Rf ./JSONav.safariextension/vendor",
-    "postinstall": "npm run vendor-build && npm run vendor-install",
+    "postinstall": "npm run vendor-build && npm run vendor-install && npm run configure",
     "vendor-build": "./scripts/vendor-build",
     "vendor-install": "./scripts/vendor-install",
-    "vendor-update": "git submodule update --recursive --remote"
+    "vendor-update": "git submodule update --recursive --remote",
+    "configure": "./scripts/configure"
   },
   "repository": {
     "type": "git",

@@ -9,7 +9,9 @@ cat << EOS
 Usage:
     $(basename ${0}) [options] [arguments]
 
-    This script will download and install all required packages
+    THIS SCRIPT SHOULD BE INVOKED VIA "npm run vendor-build"
+
+    Build vendor libraries located in the "vendors" directory.
 
         Options                 All options are optional and
         -------                 can be supplied in any order.
