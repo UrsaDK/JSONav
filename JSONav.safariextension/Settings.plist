@@ -59,8 +59,8 @@
 			<string>Dracula</string>
 			<string>Far</string>
 			<string>Foundation</string>
-			<string>Github Gist</string>
 			<string>Github</string>
+			<string>Github Gist</string>
 			<string>Googlecode</string>
 			<string>Grayscale</string>
 			<string>Gruvbox Dark</string>
@@ -73,8 +73,8 @@
 			<string>Kimbie Light</string>
 			<string>Magula</string>
 			<string>Mono Blue</string>
-			<string>Monokai Sublime</string>
 			<string>Monokai</string>
+			<string>Monokai Sublime</string>
 			<string>Obsidian</string>
 			<string>Ocean</string>
 			<string>Paraiso Dark</string>
@@ -85,16 +85,18 @@
 			<string>Qtcreator Light</string>
 			<string>Railscasts</string>
 			<string>Rainbow</string>
+			<string>Routeros</string>
 			<string>School Book</string>
 			<string>Solarized Dark</string>
 			<string>Solarized Light</string>
 			<string>Sunburst</string>
+			<string>Tomorrow</string>
+			<string>Tomorrow Night</string>
 			<string>Tomorrow Night Blue</string>
 			<string>Tomorrow Night Bright</string>
 			<string>Tomorrow Night Eighties</string>
-			<string>Tomorrow Night</string>
-			<string>Tomorrow</string>
 			<string>Vs</string>
+			<string>Vs2015</string>
 			<string>Xcode</string>
 			<string>Xt256</string>
 			<string>Zenburn</string>
@@ -141,8 +143,8 @@
 			<string>dracula</string>
 			<string>far</string>
 			<string>foundation</string>
-			<string>github-gist</string>
 			<string>github</string>
+			<string>github-gist</string>
 			<string>googlecode</string>
 			<string>grayscale</string>
 			<string>gruvbox-dark</string>
@@ -155,8 +157,8 @@
 			<string>kimbie.light</string>
 			<string>magula</string>
 			<string>mono-blue</string>
-			<string>monokai-sublime</string>
 			<string>monokai</string>
+			<string>monokai-sublime</string>
 			<string>obsidian</string>
 			<string>ocean</string>
 			<string>paraiso-dark</string>
@@ -167,16 +169,18 @@
 			<string>qtcreator_light</string>
 			<string>railscasts</string>
 			<string>rainbow</string>
+			<string>routeros</string>
 			<string>school-book</string>
 			<string>solarized-dark</string>
 			<string>solarized-light</string>
 			<string>sunburst</string>
+			<string>tomorrow</string>
+			<string>tomorrow-night</string>
 			<string>tomorrow-night-blue</string>
 			<string>tomorrow-night-bright</string>
 			<string>tomorrow-night-eighties</string>
-			<string>tomorrow-night</string>
-			<string>tomorrow</string>
 			<string>vs</string>
+			<string>vs2015</string>
 			<string>xcode</string>
 			<string>xt256</string>
 			<string>zenburn</string>

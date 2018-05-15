@@ -1,2 +1,3 @@
 /node_modules
 /JSONav.safariextension/vendor/*
+/tests/coverage

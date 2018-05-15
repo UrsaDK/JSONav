@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Dmytro Konstantinov</string>
 	<key>Builder Version</key>
-	<string>12604.3.5.1.1</string>
+	<string>13605.1.33.1.4</string>
 	<key>CFBundleDisplayName</key>
 	<string>JSON Navigator</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.0</string>
+	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.1.0</string>
+	<string>1.0.0</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -34,7 +34,7 @@
 	<key>Description</key>
 	<string>View JSON responses in a human-readable form: indented, syntax highlighted, with clickabble links.</string>
 	<key>DeveloperIdentifier</key>
-	<string>QP76M669XR</string>
+	<string>0000000000</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
