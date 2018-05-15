@@ -2,6 +2,9 @@
 
 VERSION='1.0.0'
 
+: ${COVERAGE_REPORT_TXT:="./tests/README"}
+: ${COVERAGE_REPORT_MD:="./tests/README.md"}
+
 # Document available command line options. This function
 # simply outputs script's SYNOPSIS to the user terminal.
 __help() {
@@ -36,6 +39,7 @@ __init() {
 # simulates a common destructor behaviour inside BASH scripts. It allows this
 # script to release and clean up resources upon termination.
 __exit() {
+    rm -f ${COVERAGE_REPORT_TXT}
     cd ${INITIAL_WORKING_DIR}
 }
 
@@ -108,5 +112,11 @@ fi
 # Exit immediately if any of the following command exits with a non-zero status
 set -e
 
-plutil -lint ./JSONav.safariextension/Settings.plist
+plutil -lint ./JSONav.safariextension/Info.plist \
+    ./JSONav.safariextension/Settings.plist
+echo
 ./node_modules/karma/bin/karma start ./tests/karma.conf.js
+
+echo -e "# Tests Coverage\n\`\`\`" > ${COVERAGE_REPORT_MD}
+cat -v tests/README | sed -E 's/\^\[\[[0-9;]+m//g;' >> ${COVERAGE_REPORT_MD}
+echo "\`\`\`" >> ${COVERAGE_REPORT_MD}
