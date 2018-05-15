@@ -3,7 +3,7 @@
 <img src="./JSONav.safariextension/Icon.png"
   alt="JSONav" align="left" width="75">
 
-**Version:** 1.1.0 release candidate 1  
+**Version:** 1.1.0 release candidate
 **Status:** Fully functional, all tests are passing, 96% coverage.  
 **Download:** [Stable release][apple_download] | [Latest build][github_download]  
 
@@ -43,7 +43,7 @@ The easiest way to install this extension is via Apple's Safari Extensions galle
 
   - [Safari Extensions Gallery][apple_download]
 
-If you wish to try the latest signed development release of the extension then you can download it from the `build` directory of this project:
+If you wish to try the latest development release of the extension then you can download it from the `build` directory of this project:
 
   - [Download the latest build][github_download]
 
@@ -54,9 +54,10 @@ To do this you would have to be comfortable in a Terminal, as you might be requi
 ### Requirements
 
   - Safari (obviously)
-  - node / npm
+  - npm & node -- both can be installed on MacOS with `brew install node`
+  - PlistBuddy -- comes pre-installed on MacOS as `/usr/libexec/PlistBuddy`
 
-### Instructions
+### Build Instructions
 
 Use the following command to build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the project:
 
@@ -70,7 +71,9 @@ To use the extension once built, you would also have to do both of the following
  - install the extension via the extension builder:  
    *Safari Menu > Develop > Show Extension Builder > + > Add Extension...*
 
-In order to test the extension you need to configure Safari to allow automation. As a feature intended for developers, Safari’s WebDriver support is turned off by default. To turn on WebDriver support, do the following:
+### Unit Tests
+
+In order to run extension's unit tests you need to configure Safari to allow automation. As a feature intended for developers, Safari’s WebDriver support is turned off by default. To turn on WebDriver support, do the following:
 
   - Enable Developers Menu in *Safari > Preferences > Advanced*
   - Enable Remote Automation in the Develop menu by toggling *Develop > Allow Remote Automation* in the menu bar.
@@ -121,10 +124,6 @@ JSON Navigator relies on a couple of 3rd party libraries to do the heavy lifting
 
   - [SoapBox/linkifyjs](https://github.com/SoapBox/linkifyjs) - is used to find links in plain-text and convert them to HTML `<a>` tags.
 
-
-[apple_download]: https://safari-extensions.apple.com/?q=JSONav
-[github_download]: https://github.com/UmkaDK/JSONav/raw/master/build/JSONav.safariextz
-
 ## Donations
 
 This extension is 100% free and will never have any adds. It is distributed under the terms of the MIT license, which means that you're welcome to use it for private or commercial projects and to generally do whatever you want with it.
@@ -138,3 +137,7 @@ If you're feeling generous, and want to donate to my subscription fund, then you
   &nbsp;
   [![Donate via Coinbase](https://img.shields.io/badge/coinbase-donate-gold.svg?colorB=ff8e00&logo=bitcoin)](https://commerce.coinbase.com/checkout/3f820aa2-2d54-4394-87eb-5b56cf27af21)
 </div>
+
+
+[apple_download]: https://safari-extensions.apple.com/?q=JSONav
+[github_download]: https://github.com/UmkaDK/JSONav/raw/master/build/JSONav.safariextz
