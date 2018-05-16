@@ -3,8 +3,8 @@
 <img src="./JSONav.safariextension/Icon.png"
   alt="JSONav" align="left" width="75">
 
-**Version:** 1.1.0 release candidate
-**Status:** Fully functional, all tests are passing, 96% coverage.  
+**Version:** 1.0.0 release candidate  
+**Status:** Fully functional, all tests are passing  
 **Download:** [Stable release][apple_download] | [Latest build][github_download]  
 
 ## About JSONav
@@ -57,7 +57,7 @@ To do this you would have to be comfortable in a Terminal, as you might be requi
   - npm & node -- both can be installed on MacOS with `brew install node`
   - PlistBuddy -- comes pre-installed on MacOS as `/usr/libexec/PlistBuddy`
 
-### Build Instructions
+### Extension
 
 Use the following command to build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the project:
 
@@ -140,4 +140,4 @@ If you're feeling generous, and want to donate to my subscription fund, then you
 
 
 [apple_download]: https://safari-extensions.apple.com/?q=JSONav
-[github_download]: https://github.com/UmkaDK/JSONav/raw/master/build/JSONav.safariextz
+[github_download]: https://jsonav.umka.dk/JSONav.safariextz
