@@ -113,7 +113,8 @@ fi
 set -e
 
 plutil -lint ./JSONav.safariextension/Info.plist \
-    ./JSONav.safariextension/Settings.plist
+    ./JSONav.safariextension/Settings.plist \
+    ./docs/Update.plist
 echo
 ./node_modules/karma/bin/karma start ./tests/karma.conf.js
 

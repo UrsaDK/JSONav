@@ -47,7 +47,9 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://jsonav.umka.dk/Update.plist</string>
 	<key>Website</key>
-	<string>http://umka.dk/jsonav</string>
+	<string>https://jsonav.umka.dk</string>
 </dict>
 </plist>
