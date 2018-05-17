@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/UmkaDK/JSONav/issues"
   },
-  "homepage": "http://umka.dk/jsonav",
+  "homepage": "https://jsonav.umka.dk/",
   "devDependencies": {
     "npm": "^6.0.0",
     "npm-check-updates": "^2.14.2",
