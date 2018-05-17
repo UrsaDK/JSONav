@@ -133,9 +133,13 @@ However, to sign this extension with a Safari Extension Certificated so that it 
 If you're feeling generous, and want to donate to my subscription fund, then your support will be greatly appreciated!
 
 <div style="display: block; text-align: center;">
-  [![PayPal.Me](https://img.shields.io/badge/paypal-me-blue.svg?colorB=0070ba&logo=paypal)](https://paypal.me/UmkaDK)
+  <a href="https://paypal.me/UmkaDK">
+    <img src="https://img.shields.io/badge/paypal-me-blue.svg?colorB=0070ba&logo=paypal" alt="PayPal.Me">
+  </a>
   &nbsp;
-  [![Donate via Coinbase](https://img.shields.io/badge/coinbase-donate-gold.svg?colorB=ff8e00&logo=bitcoin)](https://commerce.coinbase.com/checkout/3f820aa2-2d54-4394-87eb-5b56cf27af21)
+  <a href="https://commerce.coinbase.com/checkout/3f820aa2-2d54-4394-87eb-5b56cf27af21">
+    <img src="https://img.shields.io/badge/coinbase-donate-gold.svg?colorB=ff8e00&logo=bitcoin" alt="Donate via Coinbase">
+  </a>
 </div>
 
 
