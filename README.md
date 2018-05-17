@@ -53,13 +53,18 @@ To do this you would have to be comfortable in a Terminal, as you might be requi
 
 ### Requirements
 
-  - Safari (obviously)
-  - npm & node -- both can be installed on MacOS with `brew install node`
-  - PlistBuddy -- comes pre-installed on MacOS as `/usr/libexec/PlistBuddy`
+  - *Safari* -- obviously
+  - *git* -- can be installed on MacOS with `xcode-select --install`
+  - *npm* & *node* -- both can be installed on MacOS with `brew install node`
+  - *PlistBuddy* -- comes pre-installed on MacOS as `/usr/libexec/PlistBuddy`
 
 ### Extension
 
-Use the following command to build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the project:
+First of all you would need to checkout this repository and it's sub-modules:
+
+    git clone --recurse-submodules -jobs 2 https://github.com/UmkaDK/JSONav.git
+
+Then, use the following command to build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the project:
 
     npm install
 
@@ -132,15 +137,11 @@ However, to sign this extension with a Safari Extension Certificated so that it 
 
 If you're feeling generous, and want to donate to my subscription fund, then your support will be greatly appreciated!
 
-<div style="display: block; text-align: center;">
-  <a href="https://paypal.me/UmkaDK">
-    <img src="https://img.shields.io/badge/paypal-me-blue.svg?colorB=0070ba&logo=paypal" alt="PayPal.Me">
-  </a>
+<p align="center">
+  <a href="https://paypal.me/UmkaDK"><img src="https://img.shields.io/badge/paypal-me-blue.svg?colorB=0070ba&logo=paypal" alt="PayPal.Me"></a>
   &nbsp;
-  <a href="https://commerce.coinbase.com/checkout/3f820aa2-2d54-4394-87eb-5b56cf27af21">
-    <img src="https://img.shields.io/badge/coinbase-donate-gold.svg?colorB=ff8e00&logo=bitcoin" alt="Donate via Coinbase">
-  </a>
-</div>
+  <a href="https://commerce.coinbase.com/checkout/3f820aa2-2d54-4394-87eb-5b56cf27af21"><img src="https://img.shields.io/badge/coinbase-donate-gold.svg?colorB=ff8e00&logo=bitcoin" alt="Donate via Coinbase"></a>
+</p>
 
 
 [apple_download]: https://safari-extensions.apple.com/?q=JSONav

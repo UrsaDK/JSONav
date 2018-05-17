@@ -12,11 +12,11 @@ VERSION='1.0.0'
 __help() {
 cat << EOS
 Usage:
-    $(basename ${0}) [options] <release-version>
+    $(basename ${0}) [options]
 
-    THIS SCRIPT SHOULD BE INVOKED VIA "npm install"
+    THIS SCRIPT SHOULD BE INVOKED VIA "npm run configure"
 
-    Reconfigure extensions settings based on the values supplied in
+    Reconfigure extension settings based on the values supplied in
     package.json and available highlight.js styles.
 
         Options                 All options are optional and
@@ -26,11 +26,6 @@ Usage:
         -q --quiet              Suppress output of the script
         -? --help               Display this help message
         --version               Script and BASH version info
-
-        Arguments               All agruments are optionals and
-        ---------               can be supplied in any order.
-
-        highlight.js            Build highlight.js
 
     <> - required parameters    [] - optional parameters
 EOS
