@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "A Safari extension to display human-readable JSON: indented, syntax highlighted, with clickable links.",
   "scripts": {
+    "preinstall": "npm run configure",
+    "postinstall": "npm run vendor-build && npm run vendor-install && npm run update-plists",
     "test": "./scripts/test",
-    "preinstall": "npm run prepare",
-    "postinstall": "npm run vendor-build && npm run vendor-install && npm run configure",
-    "prepare": "./scripts/prepare",
+    "configure": "./scripts/configure",
     "vendor-build": "./scripts/vendor-build",
     "vendor-install": "./scripts/vendor-install",
-    "vendor-update": "git submodule update --recursive --remote",
-    "configure": "./scripts/configure"
+    "update-plists": "./scripts/update-plists",
+    "release": "./scripts/release"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "homepage": "http://umka.dk/jsonav",
   "devDependencies": {
     "npm": "^6.0.0",
+    "npm-check-updates": "^2.14.2",
     "jasmine": "^2.8.0",
     "karma": "^1.7.1",
     "karma-coverage": "^1.1.1",

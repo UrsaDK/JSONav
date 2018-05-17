@@ -2,9 +2,10 @@
 
 VERSION='1.0.0'
 
-: ${VENDOR_HIGHLIGHTJS:="./vendor/highlight.js"}
-: ${VENDOR_LINKIFYJS:="./vendor/linkifyjs"}
-: ${VENDOR_INSTALL_DIR:="./JSONav.safariextension/vendor"}
+: ${CMD_PLIST_BUDDY:="/usr/libexec/PlistBuddy"}
+: ${JSONAV_INFO_PLIST:="./JSONav.safariextension/Info.plist"}
+: ${JSONAV_SETTINGS_PLIST:="./JSONav.safariextension/Settings.plist"}
+: ${JSONAV_UPDATE_PLIST:="./docs/Update.plist"}
 
 # Document available command line options. This function
 # simply outputs script's SYNOPSIS to the user terminal.
@@ -13,9 +14,10 @@ cat << EOS
 Usage:
     $(basename ${0}) [options]
 
-    THIS SCRIPT SHOULD BE INVOKED VIA "npm run configure"
+    THIS SCRIPT SHOULD BE INVOKED VIA "npm run update-plists"
 
-    Remove unnecessary resources and fetch git submodules.
+    Reconfigure extension settings based on the values supplied in
+    package.json and available highlight.js styles.
 
         Options                 All options are optional and
         -------                 can be supplied in any order.
@@ -51,6 +53,16 @@ require_OPTARG() {
         __help
         exit 11
     fi
+}
+
+# Copy a given property from one plist to another.
+set_update_property() {
+    local source_file=${1}
+    local source_prop=${2}
+    local target_prop=${3:-${source_prop}}
+
+    local value="$(${CMD_PLIST_BUDDY} -c "Print ${source_prop}" ${source_file})"
+    ${CMD_PLIST_BUDDY} -c "Set :Extension\ Updates:0:${target_prop} ${value}" ${JSONAV_UPDATE_PLIST}
 }
 
 # By default BASH does not provide support for long options. However, we can
@@ -111,10 +123,29 @@ fi
 
 # Exit immediately if any of the following command exits with a non-zero status
 set -e
-echo -e "\n** Configure extension for build **\n"
+echo -e "\n** Updating plist settings **\n"
 
-if [[ -z "$(ls -A ${VENDOR_HIGHLIGHTJS})" || -z "$(ls -A ${VENDOR_LINKIFYJS})" ]]; then
-    git submodule update --init --recursive --jobs 2
-fi
+echo "- adding colour schemes"
+${CMD_PLIST_BUDDY} -c "Delete :1:Titles" ${JSONAV_SETTINGS_PLIST}
+${CMD_PLIST_BUDDY} -c "Add    :1:Titles array" ${JSONAV_SETTINGS_PLIST}
 
-rm -Rf ${VENDOR_INSTALL_DIR}
+${CMD_PLIST_BUDDY} -c "Delete :1:Values" ${JSONAV_SETTINGS_PLIST}
+${CMD_PLIST_BUDDY} -c "Add    :1:Values array" ${JSONAV_SETTINGS_PLIST}
+
+for value in $(find ./JSONav.safariextension/vendor/highlight.js/styles -name *.css -exec basename {} ".css" \; | sort ); do
+    title=$(echo $value | tr "_-." " " | awk '{for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')
+    ${CMD_PLIST_BUDDY} -c "Add :1:Titles: string '${title}'" ${JSONAV_SETTINGS_PLIST}
+    ${CMD_PLIST_BUDDY} -c "Add :1:Values: string '${value}'" ${JSONAV_SETTINGS_PLIST}
+done
+
+echo "- setting version numbers"
+RELEASE_VERSION=$(node -pe "require('./package.json').version")
+${CMD_PLIST_BUDDY} -c "Set :CFBundleShortVersionString ${RELEASE_VERSION}" ${JSONAV_INFO_PLIST}
+${CMD_PLIST_BUDDY} -c "Set :CFBundleVersion ${RELEASE_VERSION}" ${JSONAV_INFO_PLIST}
+
+echo "- setting update manifest"
+set_update_property ${JSONAV_INFO_PLIST} CFBundleIdentifier
+set_update_property ${JSONAV_INFO_PLIST} DeveloperIdentifier "Developer\ Identifier"
+set_update_property ${JSONAV_INFO_PLIST} CFBundleVersion
+set_update_property ${JSONAV_INFO_PLIST} CFBundleShortVersionString
+echo
