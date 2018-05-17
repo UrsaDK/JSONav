@@ -4,8 +4,9 @@
   "description": "A Safari extension to display human-readable JSON: indented, syntax highlighted, with clickable links.",
   "scripts": {
     "test": "./scripts/test",
-    "preinstall": "rm -Rf ./JSONav.safariextension/vendor",
+    "preinstall": "npm run prepare",
     "postinstall": "npm run vendor-build && npm run vendor-install && npm run configure",
+    "prepare": "./scripts/prepare",
     "vendor-build": "./scripts/vendor-build",
     "vendor-install": "./scripts/vendor-install",
     "vendor-update": "git submodule update --recursive --remote",

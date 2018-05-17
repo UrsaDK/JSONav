@@ -2,12 +2,9 @@
 
 VERSION='1.0.0'
 
-: ${JSONAV_INFO_PLIST:="./JSONav.safariextension/Info.plist"}
-: ${JSONAV_SETTINGS_PLIST:="./JSONav.safariextension/Settings.plist"}
-: ${JSONAV_UPDATE_PLIST:="./docs/Update.plist"}
-
-: ${COVERAGE_REPORT_TXT:="./tests/README"}
-: ${COVERAGE_REPORT_MD:="./tests/README.md"}
+: ${VENDOR_HIGHLIGHTJS:="./vendor/highlight.js"}
+: ${VENDOR_LINKIFYJS:="./vendor/linkifyjs"}
+: ${VENDOR_INSTALL_DIR:="./JSONav.safariextension/vendor"}
 
 # Document available command line options. This function
 # simply outputs script's SYNOPSIS to the user terminal.
@@ -16,9 +13,9 @@ cat << EOS
 Usage:
     $(basename ${0}) [options]
 
-    THIS SCRIPT SHOULD BE INVOKED VIA `npm test`
+    THIS SCRIPT SHOULD BE INVOKED VIA "npm run prepare"
 
-    Test built extension to ensure it's compatibility with Safari.
+    Remove unneseccary resources and prepare extension for the build.
 
         Options                 All options are optional and
         -------                 can be supplied in any order.
@@ -43,7 +40,6 @@ __init() {
 # simulates a common destructor behaviour inside BASH scripts. It allows this
 # script to release and clean up resources upon termination.
 __exit() {
-    rm -f ${COVERAGE_REPORT_TXT}
     cd ${INITIAL_WORKING_DIR}
 }
 
@@ -115,13 +111,10 @@ fi
 
 # Exit immediately if any of the following command exits with a non-zero status
 set -e
+echo -e "\n** Preparing extension for build **\n"
 
-plutil -lint ${JSONAV_INFO_PLIST} \
-    ${JSONAV_SETTINGS_PLIST} \
-    ${JSONAV_UPDATE_PLIST}
-echo
-./node_modules/karma/bin/karma start ./tests/karma.conf.js
+if [[ -z "$(ls -A ${VENDOR_HIGHLIGHTJS})" || -z "$(ls -A ${VENDOR_LINKIFYJS})" ]]; then
+    git submodule update --init --recursive --jobs 2
+fi
 
-echo -e "# Tests Coverage\n\`\`\`" > ${COVERAGE_REPORT_MD}
-cat -v tests/README | sed -E 's/\^\[\[[0-9;]+m//g;' >> ${COVERAGE_REPORT_MD}
-echo "\`\`\`" >> ${COVERAGE_REPORT_MD}
+rm -Rf ${VENDOR_INSTALL_DIR}
