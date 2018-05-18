@@ -3,7 +3,7 @@
 <img src="./JSONav.safariextension/Icon.png"
   alt="JSONav" align="left" width="75">
 
-**Version:** 1.0.0 release candidate  
+**Version:** 1.0.1 release candidate  
 **Status:** Fully functional, all tests are passing  
 **Download:** [Stable release][apple_download] | [Latest build][github_download]  
 
