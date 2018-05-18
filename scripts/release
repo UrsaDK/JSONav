@@ -137,7 +137,7 @@ if [[ -n "${NEW_RELEASE_VERSION}" && "${RELEASE_VERSION}" != "${NEW_RELEASE_VERS
         package.version = '${NEW_RELEASE_VERSION}'; \
         content = JSON.stringify(package, null, 2); \
         require('fs').writeFileSync('${PACKAGE_JSON}', content)" > /dev/null
-    sed -E \
+    sed -i -E \
         "s/^(\*\*Version:\*\* )[[:digit:]]+.[[:digit:]]+.[[:digit:]]+/\1${NEW_RELEASE_VERSION}/" \
         ${README_MD}
 fi
