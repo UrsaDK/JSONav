@@ -119,8 +119,8 @@ for ARG in ${@:-highlight.js linkifyjs}; do
             (
                 cd ./vendor/linkifyjs
                 npm install
-                ./node_modules/.bin/gulp build
-                ./node_modules/.bin/gulp dist
+                npx gulp build
+                npx gulp dist
             )
             ;;
         *)
