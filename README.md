@@ -62,7 +62,7 @@ To do this you would have to be comfortable in a Terminal, as you might be requi
 
 First of all you would need to checkout this repository and it's sub-modules:
 
-    git clone --recurse-submodules -jobs 2 https://github.com/UmkaDK/JSONav.git
+    git clone https://github.com/UmkaDK/JSONav.git
 
 Then, use the following command to build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the project:
 
