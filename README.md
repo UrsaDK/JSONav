@@ -60,11 +60,13 @@ To do this you would have to be comfortable in a Terminal, as you might be requi
 
 ### Extension
 
-First of all you would need to checkout this repository and it's sub-modules:
+First of all you need to clone the repository:
 
     git clone https://github.com/UmkaDK/JSONav.git
 
-Then, use the following command to build an unpackaged and unsigned extension in the `JSONav.safariextension` directory of the project:
+External dependencies are stored within it as submodules. They will be initialised and updated automatically during the first build.
+
+Use the following command to build an unpackaged and unsigned extension in `JSONav.safariextension` directory of the project:
 
     npm install
 
