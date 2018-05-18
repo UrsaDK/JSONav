@@ -49,6 +49,26 @@ require_OPTARG() {
     fi
 }
 
+# Test if a given value means NO.
+is_false() {
+    local value="$(echo ${1} | tr [:upper:] [:lower:])"
+
+    if [[ -z ${value} || ${value} =~ ^0|n|no|false|none|null|nil$ ]]; then
+        return 0
+    fi
+
+    return 1
+}
+
+# Test if a given value means YES.
+is_true() {
+    if is_false ${1}; then
+        return 1
+    fi
+
+    return 0
+}
+
 # By default BASH does not provide support for long options. However, we can
 # trick it into doing so by defining '-:' as part of the optspec.
 while getopts "l:q?-:" OPTKEY; do
@@ -109,7 +129,17 @@ fi
 set -e
 echo -e "\n** Upgrading dependancies **\n"
 
-./node_modules/npm-check-updates/bin/ncu --upgrade
 git submodule update --recursive --remote
 npm install
+npm outdated
+
+echo
+read -p "Update outdated packages? [y/N] " -t 300 RUN_NPM_UPDATE
+if is_true ${RUN_NPM_UPDATE}; then
+    npm update
+    echo
+    npm outdated
+    echo
+fi
+
 npm test

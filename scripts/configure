@@ -111,7 +111,7 @@ fi
 
 # Exit immediately if any of the following command exits with a non-zero status
 set -e
-echo -e "\n** Configure extension for build **\n"
+echo -e "\n** Building JSONav $(node -pe "require('./package.json').version") **\n"
 
 if [[ -z "$(ls -A ${VENDOR_HIGHLIGHTJS})" || -z "$(ls -A ${VENDOR_LINKIFYJS})" ]]; then
     git submodule update --init --recursive --jobs 2

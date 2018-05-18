@@ -120,7 +120,7 @@ plutil -lint ${JSONAV_INFO_PLIST} \
     ${JSONAV_SETTINGS_PLIST} \
     ${JSONAV_UPDATE_PLIST}
 echo
-./node_modules/karma/bin/karma start ./tests/karma.conf.js
+npx karma start ./tests/karma.conf.js
 
 echo -e "# Tests Coverage\n\`\`\`" > ${COVERAGE_REPORT_MD}
 cat -v tests/README | sed -E 's/\^\[\[[0-9;]+m//g;' >> ${COVERAGE_REPORT_MD}
