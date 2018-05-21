@@ -5,11 +5,11 @@
 
 **Version:** 1.0.1 release candidate  
 **Status:** Fully functional, all tests are passing  
-**Download:** [Stable release][apple_download] | [Latest build][github_download]  
+**Download:** [Stable release][apple_download] | [Latest build][github_download]
 
 ## About JSONav
 
-JSON Navigator (JSONav) is a Safari extension used to display JSON responses in a human-readable form: indented, syntax highlighted, with clickable links.
+JSON Navigator (JSONav) is a fast minimalist Safari extension used to display JSON responses in a human-readable form: indented, syntax highlighted, with clickable links.
 
 <a href="./Screenshot.png"><img src="./Screenshot.png"
   alt="JSONav screenshot" align="right" width="50%"></a>
@@ -34,8 +34,6 @@ This extension is designed with the following goals in mind:
   - close integration with the browser's eco-system
 
     JSONav looks and feels like part of the browser. Wherever possible it re-uses default fonts and styling providing a consistent and familiar interface established by the existing browser tools (eg: XML parser).
-
-In short, JSONav is fast, minimalist, won't slow your system down, and if it isn't highlighting JSON content returned by a page then it is highly likely that there is a problem with the content!
 
 ## How to Install
 
