@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/UmkaDK/JSONav/issues"
   },
-  "homepage": "https://jsonav.umka.dk/",
+  "homepage": "https://umka.dk/JSONav/",
   "devDependencies": {
     "jasmine": "^2.99.0",
     "karma": "^1.7.1",

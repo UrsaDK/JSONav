@@ -145,4 +145,4 @@ If you're feeling generous, and want to donate to my subscription fund, then you
 
 
 [apple_download]: https://safari-extensions.apple.com/?q=JSONav
-[github_download]: https://jsonav.umka.dk/JSONav.safariextz
+[github_download]: https://umka.dk/JSONav/JSONav.safariextz

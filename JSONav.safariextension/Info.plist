@@ -48,8 +48,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>https://jsonav.umka.dk/Update.plist</string>
+	<string>https://umka.dk/JSONav/Update.plist</string>
 	<key>Website</key>
-	<string>https://jsonav.umka.dk</string>
+	<string>https://umka.dk/JSONav</string>
 </dict>
 </plist>
