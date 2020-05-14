@@ -3,9 +3,8 @@
 <img src="./JSONav.safariextension/Icon.png"
   alt="JSONav" align="left" width="75">
 
+**Status:** ARCHIVED - Fully functional, all tests are passing  
 **Version:** 1.0.1 release candidate  
-**Status:** Fully functional, all tests are passing  
-**Download:** [Stable release][apple_download] | [Latest build][github_download]
 
 ## About JSONav
 
@@ -128,21 +127,3 @@ JSON Navigator relies on a couple of 3rd party libraries to do the heavy lifting
   - [isagalaev/highlight.js](https://github.com/isagalaev/highlight.js) - is used to provide syntax highlighting and colour themes (77 of them!).
 
   - [SoapBox/linkifyjs](https://github.com/SoapBox/linkifyjs) - is used to find links in plain-text and convert them to HTML `<a>` tags.
-
-## Donations
-
-This extension is 100% free and will never have any adds. It is distributed under the terms of the MIT license, which means that you're welcome to use it for private or commercial projects and to generally do whatever you want with it.
-
-However, to sign this extension with a Safari Extension Certificated so that it "just works" in Safari, and to distribute it via Safari Extensions Gallery, I need to maintain a subscription to Apple Developer Program, [which is not free](https://developer.apple.com/programs/how-it-works/).
-
-If you're feeling generous, and want to donate to my subscription fund, then your support will be greatly appreciated!
-
-<p align="center">
-  <a href="https://paypal.me/UmkaDK"><img src="https://img.shields.io/badge/paypal-me-blue.svg?colorB=0070ba&logo=paypal" alt="PayPal.Me"></a>
-  &nbsp;
-  <a href="https://commerce.coinbase.com/checkout/3f820aa2-2d54-4394-87eb-5b56cf27af21"><img src="https://img.shields.io/badge/coinbase-donate-gold.svg?colorB=ff8e00&logo=bitcoin" alt="Donate via Coinbase"></a>
-</p>
-
-
-[apple_download]: https://safari-extensions.apple.com/?q=JSONav
-[github_download]: https://umka.dk/JSONav/JSONav.safariextz
