@@ -59,7 +59,7 @@ To do this you would have to be comfortable in a Terminal, as you might be requi
 
 First of all you need to clone the repository:
 
-    git clone https://github.com/UmkaDK/JSONav.git
+    git clone https://github.com/UrsaDK/JSONav.git
 
 External dependencies are stored within it as submodules. They will be initialised and updated automatically during the first build.
 
